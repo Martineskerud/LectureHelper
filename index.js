@@ -1,6 +1,9 @@
 var app = require('express')();
 var http = require('http').Server(app);
-var filepath = 'D:\\Dropbox\\NodeTest\\';
+//var path = require("path");
+
+var filepath = 'D:\\Dropbox\\Dropbox\\NodeTest\\';
+//path.resolve(filepath);
 var io = require('socket.io')(http);
 var helpCounter=0;
 var time = Date.now();
@@ -38,7 +41,7 @@ socket.on('reset', function(){
 
 		var timePressed = Date.now();
 		//Users can only ask for help once 
-		if(timePressed > time+2500){
+		if(timePressed > time+7500){
 			helpCounter++;
 			time=timePressed;
 			io.emit("adminTotalCount",helpCounter);			
